@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>6502 assembler/simulator</title>
+    <meta charset="utf-8"></meta>
+  </head>
+  <body>
+
+    <div class="window" id="codeWindow" style="top:50px;left:50px;">
+      <div class="window-header">6502 Processor</div>
+      <div class="window-content">
+        <div class="buttons">
+          <input type="button" value="Assemble" class="assembleButton" />
+          <input type="button" value="Run" class="runButton" />
+          <input type="button" value="Reset" class="resetButton" />
+          <input type="button" value="Hexdump" class="hexdumpButton" />
+          <input type="button" value="Disassemble" class="disassembleButton" />
+          <input type="button" value="Notes" class="notesButton" />
+        </div>
+
+        <textarea class="code">; Put some assembly code here, click on Assemble, then Run, and the 6502 will do its job.</textarea>
+
+        <!-- <canvas class="screen" width="160" height="160"></canvas> -->
+
+        <div class="debugger">
+          <input type="checkbox" class="debug" name="debug" />
+          <label for="debug">Debugger</label>
+          <div class="minidebugger"></div>
+          <div class="buttons">
+            <input type="button" value="Step" class="stepButton" />
+            <input type="button" value="Jump to ..." class="gotoButton" />
+          </div>
+        </div>
+
+        <div class="messages"><pre><code></code></pre></div>
+
+        <div class="notes" style="display: none">Notes:
+
+Memory location $fe contains a new random byte on every instruction.
+Memory location $ff contains the ascii code of the last key pressed.
+
+Memory locations $200 to $5ff map to the screen pixels. Different values will
+draw different colour pixels. The colours are:
+
+$0: Black
+$1: White
+$2: Red
+$3: Cyan
+$4: Purple
+$5: Green
+$6: Blue
+$7: Yellow
+$8: Orange
+$9: Brown
+$a: Light red
+$b: Dark grey
+$c: Grey
+$d: Light green
+$e: Light blue
+$f: Light grey
+        </div>
+      </div>
+    </div>
+    <div class="window" id="memoryWindow" style="top:50px;left:700px;">
+      <div class="window-header">Available memory</div>
+      <div class="window-content">
+        <div id="memoryUsage">
+          <span style="display:block;padding-bottom:5px;">Memory usage</span>
+          <canvas id="memoryCanvas"></canvas>
+          <div id="memorySettings"></div>
+        </div>
+        <hr>
+        <div class="monitorControls">
+          <label for="monitoring">Monitor</label>
+          <input type="checkbox" class="monitoring" name="monitoring" />
+  
+          <label for="start">Start: $</label>
+          <input type="text" value="0" class="start" name="start" />
+          <label for="length">Length: $</label>
+          <input type="text" value="ff" class="length" name="length" />
+        </div>
+        <div class="monitor"><pre><code></code></pre></div>
+      </div>
+    </div>
+    <div class="window" id="outputWindow" style="top:500px;left:750px;">
+      <div class="window-header">Output</div>
+      <div class="window-content">
+        <div id="outputType">Output type: <select id="outputSelect">
+          <option value="0">None</option>
+          <option value="1">32x32 256 color matrix display</option>
+          <option value="2">128x32 ASCII character 2D array</option>
+          <option value="3">HD44780U LCD screen simulation</option>
+        </select></div>
+        <div id="mainOutput"></div>
+      </div>
+    </div>
+
+    <script src="es5-shim.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="assembler.js"></script>
+    <script src="windows.js"></script>
+    <script src="memory-usage.js"></script>
+    <script src="output.js"></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+.window-content hr{
+  overflow: visible;
+  width: calc(100% + 14px);
+  position: relative;
+  right: 8px;
+  border-style: solid;
+  border-color: #fff8;
+}
+
+body{
+  background: radial-gradient(circle at center, #181833 50%, transparent 0%), #151530;
+  background-size: 10px 10px;
+  color:white;
+  font-family:monospace;
+}
+body, html{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  border: 0;
+  padding: 0;
+  float: left;
+}
+
+.window#codeWindow .window-content {
+  width: 600px;
+}
+
+.window#memoryWindow .window-content {
+  padding-bottom:0;
+}
+
+.window{
+  position:absolute;
+  border: white 1px solid;
+  border-top: none;
+  background: #151530a0;
+}
+
+.window-header{
+  background: white;
+  color: black;
+  padding: 3px 6px;
+  user-select: none;
+}
+
+.window#codeWindow div.buttons{
+  margin-top:0px;
+}
+
+.window-content{
+  padding:8px;
+}
+
+.buttons {
+  margin: 8px 0;
+}
+
+.start, .length, .window#memoryWindow input[type=text] {
+  width: 50px;
+}
+
+pre {
+  margin: 0;
+  padding: 0;
+  background: inherit;
+  border: none;
+}
+
+.code {
+  margin: 0 0 6px 0;
+  padding: 6px;
+  border: 1px solid black;
+  width: 420px;
+  height: 290px;
+  font-family: monospace;
+  overflow: auto;
+  float: left;
+}
+
+.screen {
+  float: right;
+}
+
+.debugger {
+  border: 1px black solid;
+  margin-top: 6px;
+  padding: 3px;
+  padding-top: 8px;
+  text-align: center;
+  float: left;
+  width: calc(100% - 6px);
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.minidebugger {
+  margin: 0;
+  margin-top: 6px;
+  padding: 0;
+  font-family: monospace;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.monitorControls {
+  width: 587px;
+  clear: both;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.monitorControls input {
+  margin-right: 0.5em;
+}
+
+.monitor {
+  margin: 10px 0;
+  padding: 6px;
+  border: 1px solid #999;
+  background-color: #ddd;
+  height: 100px;
+  overflow: auto;
+  display: none;
+  color:#444;
+}
+
+.messages {
+  margin: 0;
+  padding: 6px;
+  border: 1px solid #999;
+  background-color: #eee;
+  overflow: auto;
+  width: 587px;
+  height: 100px;
+  text-align: left;
+  font-size: 12px;
+  color: #444;
+}
+
+div#componentColor{
+  width:12px;
+  height:12px;
+  border:1px white solid;
+  display: inline-block;
+  margin-right:5px;
+}
+
+div#memorySettings div{
+  white-space: pre;
+}
